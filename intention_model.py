@@ -13,12 +13,12 @@ def get_utility(norm, k_T, n_T = 1, alpha_bro = 30, reg=True):
     alpha_bro (int): brother is equal to # alpha_bro of anonymous people
     Returns D_T (float): utility of n_T people on track T not being killed
     """
-    
-    if (not norm or reg) and n_T != -1:
-        D_T = n_T * k_T * np.random.exponential()
-    else:
+
+    if norm and n_T == -1:
         D_T = alpha_bro * k_T * np.random.exponential()
-    
+    else:
+        D_T = n_T * k_T * np.random.exponential()
+        
     return D_T
 
 
